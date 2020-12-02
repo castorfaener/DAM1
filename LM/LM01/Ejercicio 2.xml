@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<!DOCTYPE Agenda_telefono>
+
+<Agenda_telefono>
+	<nombre> Pepito </nombre>
+	<apellido> Perez </apellido>
+	<direccion>"Trece Rue del Percebe"</direccion>
+	<telf_casa> 92458140124 </telf_casa>
+	<telf_movil> 654789658741 </telf_movil>
+	<telf_trabajo> 4512456987 </telf_trabajo>
+</Agenda_telefono>
+
+
+
