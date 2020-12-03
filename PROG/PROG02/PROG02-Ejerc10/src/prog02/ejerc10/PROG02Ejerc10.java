@@ -34,6 +34,10 @@ public class PROG02Ejerc10 {
         sz = (short)(sx + sy);
         System.out.printf("\nshort: " + sx +" + " + sy + " = " + sz);
         System.out.println("\n\n------- Operaciones con char -------");
+        char cx = '\u000F';
+        char cy = '\u0001';
+        int z = (int)cx;
+        System.out.println("char: - = " + z );
         
         
         
