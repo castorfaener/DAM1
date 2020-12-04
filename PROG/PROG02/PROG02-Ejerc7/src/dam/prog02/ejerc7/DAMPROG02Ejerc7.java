@@ -1,4 +1,4 @@
-
+//Ejercicio 7 de PROG02
 package dam.prog02.ejerc7;
 
 public class DAMPROG02Ejerc7 {

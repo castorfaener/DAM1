@@ -1,4 +1,4 @@
-
+//Ejercicio 8 de PROG02
 package prog02.ejerc8;
 
 
@@ -7,13 +7,13 @@ public class PROG02Ejerc8 {
     enum ED{ Paco, Ana, Vicente, Susi}
     enum BD{Susana, Jorge, Pedro, Ines, Juan, Jessica, Luis, Edu}
     public static void main(String[] args) {
-        int totalProg = PROG.values().length;
+        int totalProg = PROG.values().length;                   //Calculamos el numero de alumnos por grupo
         int totalEd = ED.values().length;
         int totalBd = BD.values().length;
-        int totalAlumnos = totalProg + totalEd + totalBd;
+        int totalAlumnos = totalProg + totalEd + totalBd;       //Calculamos el total de alumnos
         float percentProg, percentEd, percentBd;
         
-        percentProg = ((float)totalProg / (float)totalAlumnos )*100;
+        percentProg = ((float)totalProg / (float)totalAlumnos )*100;        //Calculamos el perceentaje por cada grupo sobre el total de alumnos
         percentEd = ((float)totalEd / (float)totalAlumnos )*100;
         percentBd = ((float)totalBd / (float)totalAlumnos )*100;
         

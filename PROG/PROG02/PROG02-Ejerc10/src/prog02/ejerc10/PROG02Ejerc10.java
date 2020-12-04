@@ -1,9 +1,11 @@
-
+/* Ejercicio 10 de PROG02*/
 package prog02.ejerc10;
 
 public class PROG02Ejerc10 {
 
     public static void main(String[] args) {
+        //Operaciones con floats
+        
         float x = (float)4.50;
         float y = (float)3.0;
         int i = 2;
@@ -13,6 +15,8 @@ public class PROG02Ejerc10 {
         double dx = 2.0;
         double dz = dx * y;
         System.out.printf("\nProducto de double por float: dz = dx * y = %.1f\n\n", dz);
+        
+        //Operaciones con bytes
         byte bx = 5;
         byte by = 2;
         byte bz = (byte)(bx - by);
@@ -24,6 +28,8 @@ public class PROG02Ejerc10 {
         System.out.printf("\nbyte : " + bx +" - " + by + " = " + bz);
         int bzint = (int)(bx - by);                                             
         System.out.printf("\n(int)("+ bx +" - " + by + ") = " + bzint);
+        
+        //operaciones con shorts
         short sx = 5;
         short sy = 2;
         short sz = (short)(sx - sy);
@@ -33,13 +39,25 @@ public class PROG02Ejerc10 {
         sy = 1;
         sz = (short)(sx + sy);
         System.out.printf("\nshort: " + sx +" + " + sy + " = " + sz);
+        
+        //Operaciones con char
         System.out.println("\n\n------- Operaciones con char -------");
         char cx = '\u000F';
         char cy = '\u0001';
-        int z = (int)cx;
-        System.out.println("char: - = " + z );
+        int z = (int)cx - (int)cy;
+        System.out.println("char: "+ cx + " - " + cy + " = " + z );
+        z = (int)cx - 1;
+        System.out.println("char: "+ cx + " - 1 = " + z );
+        cx = '\uFFFF';
+        z = (int)cx;
+        System.out.println("(int)(" + cx + ") = " + z);
+        sx = (short)cx;
+        System.out.println("(short)(" + cx + ") = " + sx);
+        sx = -32768;
+        cx = (char)sx;
+        z = (int)sx;
         
-        
+        //Las ultimas dos operaciones no entiendo como realizarlas
         
     }
     

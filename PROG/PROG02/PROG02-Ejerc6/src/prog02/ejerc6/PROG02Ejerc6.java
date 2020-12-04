@@ -1,4 +1,4 @@
-
+//Ejercicio 6 de PROG02
 package prog02.ejerc6;
 
 public class PROG02Ejerc6 {

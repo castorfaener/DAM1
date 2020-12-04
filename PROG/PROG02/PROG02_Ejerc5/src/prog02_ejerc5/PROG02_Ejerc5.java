@@ -1,4 +1,4 @@
-
+//Ejercicio 5 de PROG02
 package prog02_ejerc5;
 
 
@@ -9,7 +9,7 @@ public class PROG02_Ejerc5 {
        int minutos;
        int horas;
        int dias;
-       int segundos = 14464;                    //Variable para indicar el numero de segundos a calcular
+       int segundos = 144642;                    //Variable para indicar el numero de segundos a calcular
        int segundosRestantes;
        
        dias = segundos / 86400;             //Dividimos los segundos totales entre el numero de segundos que tiene un dia
