@@ -21,3 +21,10 @@ CREATE TABLE TIENDA (
 	Telefono VARCHAR(11),
 	Codigopostal VARCHAR(5) CONSTRAINT ti_cod_nn NOT NULL,
 	Provincia VARCHAR(5) CONSTRAINT ti_pr_nn NOT NULL);
+
+-- Creamos la tabla STOCK
+CREATE TABLE STOCK (
+	Codtienda NUMBER(3) CONSTRAINT st_co_nn NOT NULL CONSTRAINT st_co_fk REFERENCES TIENDA,
+	Codproducto NUMBER(5) CONSTRAINT st_codp_nn NOT NULL CONSTRAINT st_codp_fk REFERENCES PRODUCTO,
+	CONSTRAINT st_co_pk PRIMARY KEY (Codtienda, Codproducto),
+	Unidades NUMBER(6) CONSTRAINT st_un_nn NOT NULL CONSTRAINT st_un_ch CHECK(Unidades >= 0));
