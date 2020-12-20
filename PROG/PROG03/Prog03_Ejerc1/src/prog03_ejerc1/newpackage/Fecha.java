@@ -47,7 +47,7 @@ public class Fecha {
         return summer;
     }
     
-    public void totString(){
-        System.out.println("La fecha es " + fechaDia + " de " + fechaMes + " de " + fechaAnio);
+    public String toString(){
+        return "La fecha es " + fechaDia + " de " + fechaMes + " de " + fechaAnio;
     }
 }

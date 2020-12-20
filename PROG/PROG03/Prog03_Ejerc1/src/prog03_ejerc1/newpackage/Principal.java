@@ -16,13 +16,13 @@ public class Principal {
         objFecha1.setAnio(2012);
         
         System.out.println("Primera fecha, inicializada con el primer constructor");
-        objFecha1.totString();
+        System.out.println(objFecha1);
         System.out.println("¿Es verano?: " + objFecha1.isSummer() + "\n\n");
         
         Fecha objFecha2 = new Fecha(4, enumMes.ENERO, 1985);
         System.out.println("Segunda fecha, inicializada con el segundo constructor");
         System.out.println("Contiene el año " + objFecha2.getAnio());
-        objFecha2.totString();
+        System.out.println(objFecha2);
         System.out.println("¿Es verano?: " + objFecha2.isSummer() + "\n\n");
         
         
