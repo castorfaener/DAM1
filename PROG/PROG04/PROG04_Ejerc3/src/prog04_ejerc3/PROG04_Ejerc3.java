@@ -53,9 +53,9 @@ public class PROG04_Ejerc3 {
     
     public static int mcm(int n1, int n2){
         
-        int mcmNum = (n1 > n2) ? n1 : n2;           //
+        int mcmNum = (n1 > n2) ? n1 : n2;           //Calculamos el máximo de los dos numeros introducidos
         
-        while((mcmNum % n1 != 0)&&(mcmNum % n2 != 0))
+        while((mcmNum % n1 != 0)||(mcmNum % n2 != 0))               //Aumentamos el valor de mcmNum y vamos probando hasta encontrar el numero que sea divisible.
         
         if(mcmNum % n1 != 0){
             mcmNum++;
