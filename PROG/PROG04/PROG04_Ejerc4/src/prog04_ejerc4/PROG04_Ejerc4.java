@@ -13,8 +13,8 @@
  *
  */
 package prog04_ejerc4;
-import java.util.Scanner;
 
+import java.util.Scanner;
 
 /**
  *
@@ -23,95 +23,100 @@ import java.util.Scanner;
 public class PROG04_Ejerc4 {
 
     public static Scanner teclado = new Scanner(System.in);
-    
+
     static int numInt = 5; // intentos permitidos
     static int numMax = 10; // numero máximo generado
-    
+
     public static void main(String[] args) {
-        
-       
-        
-        do{
-        switch(menu()){
-            case 0:
-                System.out.println("La opcion elegida no es correcta. Finalizando programa");
-                System.exit(0);
-                break;
-            
-            case 1: 
-                System.out.println("****Configuracion****");
-                configurar();
-                break;
-            
-            case 2: 
-                System.out.println("****A jugar!!****");
-                juego();
-                break;    
-            
-            case 3: 
-                System.out.println("Salimos del programa");
-                System.exit(0);
-                break;    
+
+        do {
+            switch (menu()) {
+                case 0:
+                    System.out.println("La opcion elegida no es correcta. Finalizando programa");
+                    System.exit(0);
+                    break;
+
+                case 1:
+                    System.out.println("****Configuracion****");
+                    configurar();
+                    break;
+
+                case 2:
+                    System.out.println("****A jugar!!****");
+                    juego();
+                    break;
+
+                case 3:
+                    System.out.println("Salimos del programa");
+                    System.exit(0);
+                    break;
             }
-        }while(menu()!=0);
-        
-        
+        } while (menu() != 0);
+
     }
-    
+
     /**
-     *  Muestra por pantalla un menu de tres opciones a elegir por el usuario
-     * 
-     * @return opcion elegida desde el menu. 
+     * Muestra por pantalla un menu de tres opciones a elegir por el usuario
+     *
+     * @return opcion elegida desde el menu.
      */
-    public static int menu(){
+    public static int menu() {
         int opcion;
         System.out.println("****Juego del numero oculto****\nElige una opcion");
         System.out.println("1. Configurar\n2. Jugar\n3. Salir");
-        
+
         opcion = teclado.nextInt();
-        
-        if(opcion>3 || opcion<1){
+
+        if (opcion > 3 || opcion < 1) {
             return 0;                   //En caso de no ser una opcion valida devuelve 0.
         }
         return opcion;
     }
-    
+
     /**
-     *  Solicita por teclado el numero de intentos permitidos y el máximo valor del numero generado
+     * Solicita por teclado el numero de intentos permitidos y el máximo valor
+     * del numero generado
      */
-    public static void configurar(){
+    public static void configurar() {
         
-        System.out.println("introduce el numero de intentos permitidos: ");
+        System.out.println("Vamos a configurar los parametros del juego\n ");
+        System.out.println("Introduce el numero de intentos permitidos: ");
         numInt = teclado.nextInt();
-        System.out.println("introduce el valor máximo del numero generado: ");
+        System.out.println("Introduce el valor máximo del numero generado: ");
         numMax = teclado.nextInt();
-        
+
     }
-    
+
     /**
-     *  No funciona
+     * Genera el numero a adivinar. Solicita el numero al usuario y lo compara con el generado para mostrar los resultados.
      */
-    public static void juego(){
-        int numOculto = (int)Math.floor(Math.random()*numMax+1);
+    public static void juego() {
+        int numOculto = (int) Math.floor(Math.random() * numMax + 1);           //generamos el numero aleatorio
         int numero;
         int intentos = 0;
-        
-        System.out.println("Tienes que adivinar un numero entre 0 y "+ numMax + ".\nTienes " + numInt + " intentos. Buena suerte!");
+
+        System.out.println("Tienes que adivinar un numero entre 0 y " + numMax + ".\nTienes " + numInt + " intentos. Buena suerte!");
         System.out.println("Introduce un numero: ");
         numero = teclado.nextInt();
         intentos++;
-        
-        while(numero != numOculto){
-            if(numero<numOculto){
-                System.out.println("El numero introducido es menor. Intentalo de nuevo");
-            }else{
-                System.out.println("El numero introducido es mayor. Intentalo de nuevo");
-            }
+        while (numero != numOculto) {
+
+            if (numero < 0 || numero > numMax) {
+                System.out.println("El numero introducido se encuentra fuera del rango definido. Intentalo de nuevo");
+                intentos++;
+            } else if (numero < numOculto) {
+                System.out.println("El numero oculto es mayor. Intentalo de nuevo");
+                intentos++;
+            } else if (numero > numOculto) {
+                System.out.println("El numero oculto es menor. Intentalo de nuevo");
+                intentos++;
+            } 
+                
+            
             System.out.println("Introduce un numero: ");
             numero = teclado.nextInt();
-            intentos++;
         }
-        
-        System.out.println("Has ganado!. Has necesitado " + intentos + " intentos");
+        System.out.println("Has ganado!. Has necesitado " + intentos + " intentos\n\n");
+
     }
 }
