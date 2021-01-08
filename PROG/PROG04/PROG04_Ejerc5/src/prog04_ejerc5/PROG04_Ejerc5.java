@@ -7,15 +7,33 @@
  */
 package prog04_ejerc5;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Francisco Alacreu Rosello
  */
 public class PROG04_Ejerc5 {
 
+    static Scanner teclado = new Scanner(System.in);
+    
+    static int dividendo;
+    static int divisor;
+    
     
     public static void main(String[] args) {
         
+        System.out.println("Introduce el valor para el dividendo: ");
+        dividendo = teclado.nextInt();
+        System.out.println("Introduce el valor del divisor");
+        divisor = teclado.nextInt();
+        
+        System.out.println("El resultado de la división es: " + divide(dividendo,divisor));
+        
+    }
+    
+    static double divide(int a, int b){
+        return (a/b);
     }
     
 }
