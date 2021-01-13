@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Reserva Hotel</title>
+		<meta charset='UTF-8'>
+		 <link rel="stylesheet" href="Ejercicio3.css">
+	</head>
+
+	<body>
+		<h1>Formulario de reserva</h1>
+		<h4>Intruduzca los datos solicitados a continuación para la confirmación de la reserva</h4>
+		<br>
+		<fieldset>
+			<legend><strong>Introduzca sus datos personales</strong></legend>
+			<label>Nombre</label>
+			<input type="text" name="Nombre" required>
+			<label>Apellidos</label>
+			<input type="text" name="Apellidos" size= 50 required>
+			<br>
+			<br>
+			<label>Teléfono</label>
+			<input type="text" name="Telefono" size=10 required>
+			<label>Email</label>
+			<input type="Email" name="Email" size=40 required>
+			
+		</fieldset>
+		<br>
+		<fieldset>
+			<legend><strong>Seleccione las opciones elegidas</strong></legend>
+			<label>Seleccione nº de noches</label>
+			<input type="number" name="nNoches" size=3 required>
+			<br>
+			<p>Elija el tipo de habitación:</p>
+  			<input type="radio" id="hab1" name="tipHab" value="1">
+  			<label for="hab1">Simple</label><br>
+  			<input type="radio" id="hab2" name="tipHab" value="2">
+  			<label for="hab2">Doble</label><br>  
+  			<input type="radio" id="hab3" name="tipHab" value="3">
+ 			<label for="hab3">Matrimonio</label><br><br>
+ 			Opciones adicionales:
+ 			<select name=adicionales>
+ 				<option value="1">Desayuno</option>
+ 				<option value="2">Comida</option>
+ 				<option value="3">Cena</option>
+ 			</select>
+ 			<input type="radio" id="supl" name="supletoria" value="1">
+ 			<label for="supl">Cama supletoria</label>
+ 			<br>
+  			
+		</fieldset>
+		<br>
+		Incluya algun a información adicional si lo desea:
+		<br>
+		<textarea name="comentarios"></textarea>
+		<br>
+		<input type="submit" value="Confirmar">
+		<input type="reset" value="Limpiar Formulario">
+
+	</body>
+</html>
