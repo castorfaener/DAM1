@@ -10,7 +10,10 @@ package prog04_ejerc5;
 import java.util.Scanner;
 
 /**
- *
+ * Pide dos numeros por teclado para realizar su division. 
+ * Verifica que no se realice una division entre cero.
+ * Cuando los dos numeros introducidos son -1 el programa finaliza
+ * 
  * @author Francisco Alacreu Rosello
  */
 public class PROG04_Ejerc5 {
@@ -23,17 +26,34 @@ public class PROG04_Ejerc5 {
     
     public static void main(String[] args) {
         
-        System.out.println("Introduce el valor para el dividendo: ");
-        dividendo = teclado.nextInt();
-        System.out.println("Introduce el valor del divisor");
-        divisor = teclado.nextInt();
+        do{
+            try{
+                System.out.println("Introduce el valor para el dividendo: ");
+                dividendo = teclado.nextInt();
+                System.out.println("Introduce el valor del divisor");
+                divisor = teclado.nextInt();
+                System.out.println("El resultado de la división es: " + divide(dividendo,divisor));
+            }catch(ArithmeticException e){
+                System.out.println("Has realizado una division entre 0. Intentalo de nuevo.");
+            }
+            
         
-        System.out.println("El resultado de la división es: " + divide(dividendo,divisor));
+            
         
+        }while(dividendo!=-1 || divisor !=-1);    
     }
+    
+    /**
+     * Calcula la division de dos numeros
+     * 
+     * @param a dividendo 
+     * @param b divisor
+     * @return resultado de la division
+     */
     
     static double divide(int a, int b){
         return (a/b);
     }
+    
     
 }
