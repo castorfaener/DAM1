@@ -5,6 +5,7 @@
  */
 
 package PROG05_Ejerc1;
+import PROG05_Ejerc1_util.Valida;
 
 /**
  * 
@@ -14,18 +15,16 @@ package PROG05_Ejerc1;
  */
 public class Vehiculo {
     
-    String matricula;
-    String marca;
-    int kilometros;
-    String fechaMatriculacion;
-    String descripcion;
-    double precio;
-    String nombrePropietario;
-    String DNI;
+    private String matricula;
+    private String marca;
+    private int kilometros;
+    private String fechaMatriculacion;
+    private String descripcion;
+    private double precio;
+    private String nombrePropietario;
+    private String DNI;
     
-    public Vehiculo(){
-        
-    }
+    
     
     
     /**
@@ -125,13 +124,41 @@ public class Vehiculo {
     }
     
     /**
+     * setter para el atributo de fecha de matriculacion
+     * @param fecha decha de matriculacion
+     */
+    public void setFechaMatriculacion(String fecha){
+        this.fechaMatriculacion = fecha;
+    }
+    
+    /**
+     * setter para el atributo DNI del propietario
+     * @param DNI DNI del propietario
+     */
+    public void setDNI(String DNI){
+        this.DNI = DNI;
+    }
+    
+    /**
      * Calcula los años que tiene el coche según la fecha de matriculacion. Pendiente!!!
      * @return Años desde matriculacion
      */
-    public int get_Anios(){
+    /*public int get_Anios(){
         int Anios;
         
         return Anios;
+        
+    }*/
+    
+    public Vehiculo(){
+        matricula = "";
+        marca  = "";
+        kilometros = 0;
+        fechaMatriculacion = "";
+        descripcion = "";
+        precio = 0;
+        nombrePropietario = "";
+        DNI = "";
         
     }
 }

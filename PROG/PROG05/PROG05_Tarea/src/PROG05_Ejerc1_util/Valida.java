@@ -7,7 +7,7 @@ package PROG05_Ejerc1_util;
  * 
  * @author Francisco Alacreu Rosello
  */
-public class validaciones {
+public class Valida {
 
     /**
      * Verifica si se ha instanciado un vehiculo para mostrar sus datos
@@ -16,6 +16,8 @@ public class validaciones {
     public static void existeVehiculo(boolean vehiculo){
         if(vehiculo==false){
             System.out.println("No existe ningun vehiculo para mostrar datos");
+            System.exit(0);
+            
             
         }
     }
