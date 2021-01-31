@@ -5,7 +5,9 @@
  */
 
 package PROG05_Ejerc1;
-import PROG05_Ejerc1_util.Valida;
+
+import java.time.*;
+
 
 /**
  * 
@@ -18,7 +20,7 @@ public class Vehiculo {
     private String matricula;
     private String marca;
     private int kilometros;
-    private String fechaMatriculacion;
+    private static LocalDate fechaMatriculacion;
     private String descripcion;
     private double precio;
     private String nombrePropietario;
@@ -125,10 +127,21 @@ public class Vehiculo {
     
     /**
      * setter para el atributo de fecha de matriculacion
-     * @param fecha decha de matriculacion
+     * @param dia Dia de matriculacion
+     * @param mes Mes de matriculacion
+     * @param anio Año de matriculacion
      */
-    public void setFechaMatriculacion(String fecha){
-        this.fechaMatriculacion = fecha;
+    public void setFechaMatriculacion(int dia, int mes, int anio){
+        fechaMatriculacion = LocalDate.of(anio, mes, dia);
+        
+    }
+    
+    /**
+     * getter del atributo fecha de matriculacion
+     * @return fecha de matriculacion. LocalDate
+     */
+    public LocalDate getFechaMatriculacion(){
+        return fechaMatriculacion;
     }
     
     /**
@@ -140,25 +153,36 @@ public class Vehiculo {
     }
     
     /**
-     * Calcula los años que tiene el coche según la fecha de matriculacion. Pendiente!!!
+     * getter para el atributo DNI del propietario
+     * @return DNI del propietario
+     */
+    public String getDNI(){
+        return this.DNI;
+    }
+    
+    /**
+     * Calcula los años que tiene el coche según la fecha de matriculacion. 
      * @return Años desde matriculacion
      */
-    /*public int get_Anios(){
-        int Anios;
+    public int getAnios(){
+        int Anios = Period.between(fechaMatriculacion, LocalDate.now()).getYears();
         
         return Anios;
         
-    }*/
+    }
     
+    /**
+     * Constructor de la clase vehiculo
+     */
     public Vehiculo(){
         matricula = "";
         marca  = "";
         kilometros = 0;
-        fechaMatriculacion = "";
         descripcion = "";
         precio = 0;
         nombrePropietario = "";
         DNI = "";
+        
         
     }
 }
