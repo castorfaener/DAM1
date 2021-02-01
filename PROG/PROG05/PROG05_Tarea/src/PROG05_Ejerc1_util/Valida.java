@@ -43,6 +43,11 @@ public class Valida {
     
     private int numDNI;
     private static final String LETRAS_DNI = "TRWAGMYFPDXBNJZSQVHLCKE";
+    /**
+     * Calcula la letra correspondiente al DNI
+     * @param dni numero de DNI
+     * @return Letra que corresponde al NIF
+     */
     private static char calcularLetraNIF(int dni) {
         char letra;
         // Cálculo de la letra NIF
@@ -50,19 +55,32 @@ public class Valida {
         // Devolución de la letra NIF
         return letra;
     }
-
+    /**
+    * Extrae la letra del NIF pasado por parametro
+    * @param nif NIF
+    * @return letra en mayuscula del NIF
+    */
     private static char extraerLetraNIF(String nif) {
         char letra = nif.charAt(nif.length() - 1);
         //return letra;
         return Character.toUpperCase(letra); //Devolvemos su equivalente en mayúscula para poder comparar con las letras de la cadena LETRAS_DNI
     }
-
+    /**
+     * Extrae el numero del NIF pasado por parametro
+     * @param nif NIF
+     * @return numero del NIF
+     */
     private static int extraerNumeroNIF(String nif) {
         int numero = Integer.parseInt(nif.substring(0, nif.length() - 1));
         return numero;
     }
-
-    public static boolean validarNIF(String nif) throws Exception {
+    /**
+     * Comprueba que el nif sea correcto
+     * @param nif NIF
+     * @return Si es valido o no. Boolean
+     * @throws PROG05_Ejerc1_util.Valida.Nif_Erroneo 
+     */
+    public static boolean validarNIF(String nif) throws Nif_Erroneo {
         boolean valido = true;   // Suponemos el NIF válido mientras no se encuentre algún fallo
         char letra_calculada;
         char letra_leida;
@@ -70,9 +88,12 @@ public class Valida {
 
         if (nif == null) {  // El parámetro debe ser un objeto no vacío
             valido = false;
+            throw new Nif_Erroneo("El NIF no es correcto");
+                   
 
         } else if (nif.length() < 8 || nif.length() > 9) {    // La cadena debe estar entre 8(7+1) y 9(8+1) caracteres
             valido = false;
+            throw new Nif_Erroneo("El NIF no es correcto");
 
         } else {
             letra_leida = extraerLetraNIF(nif);    // Extraemos la letra de NIF (letra)
@@ -80,7 +101,7 @@ public class Valida {
             letra_calculada = calcularLetraNIF(dni_leido);  // Calculamos la letra de NIF a partir del número extraído
             if (letra_leida != letra_calculada) {   // Comparamos la letra extraída con la calculada
                 valido = false;
-                
+                throw new Nif_Erroneo("El NIF no es correcto");
                 
             }
         }
@@ -99,5 +120,19 @@ public class Valida {
         
         boolean valida = LocalDate.of(anio, mes, dia).isBefore(LocalDate.now());
         return valida;
+    }
+    /**
+     * Excepcion para la validacion del NIF
+     */
+    static class Nif_Erroneo extends Exception{
+        
+        public Nif_Erroneo(){
+        }
+        
+        public Nif_Erroneo(String msj_error){
+            
+            super(msj_error);
+        }
+    
     }
 }

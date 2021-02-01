@@ -3,8 +3,7 @@ package PROG05_Ejerc1;
 
 import PROG05_Ejerc1_util.Valida;
 import java.util.Scanner;
-import java.time.*;
-import java.lang.Exception;
+
 
 /**
  *
@@ -22,7 +21,7 @@ public class Principal {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args){
         int select=10;
         
         Vehiculo coche = new Vehiculo();
@@ -76,12 +75,14 @@ public class Principal {
                     System.out.println("Introduce el DNI del propietario: ");
                     String DNI = teclado.nextLine();
                     
-                    if(Valida.validarNIF(DNI)){
+                    try{
+                    
+                    Valida.validarNIF(DNI);
                         coche.setDNI(DNI);
-                    }else{
-                        throw new Exception ("NIF invalido");
+                    }catch(Exception e){
+                        System.out.println("El NIF no es correcto");
                     } 
-               
+            
                     vehiculo = true;
                     
                     break;
@@ -201,7 +202,5 @@ public class Principal {
     }
     
    
-    
-    
     
 }
