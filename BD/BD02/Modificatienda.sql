@@ -13,7 +13,7 @@
 
 ALTER TABLE STOCK ADD(
 	FechaUltimaEntrada DATE DEFAULT SYSDATE,
-	Beneficio NUMBER(1) CONSTRAINT st_ben_ch CHECK(Beneficio BETWEEN 1 AND 5));    OK
+	Beneficio NUMBER(1) CONSTRAINT st_ben_ch CHECK(Beneficio BETWEEN 1 AND 5));
 
 
 /*	 
