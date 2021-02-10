@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="impresoras">
+		<xs:complexType name="impresora">
+			<xs:sequence>
+				<xs:element name="numSerie">
+				 	<xs:simpleType>
+				 		<xs:restriction base ="xs:string">
+				 			<xs:attribute use="required"/>
+				 		</xs:restriction>
+				 	</xs:simpleType>
+				</xs:element> 
+				<xs:element name="tipo">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:attribute use="required"/>
+							<xs:enumeration value="matricial"/>
+							<xs:enumeration value="laser"/>
+							<xs:enumeration value="tinta"/>
+						</xs:restriction>
+					</xs:simpleType>	
+				</xs:element>
+	
+				<xs:element name="compra" type="positiveInteger" minOccurs="0"/>
+							
+								
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>		
+</xs:schema>
