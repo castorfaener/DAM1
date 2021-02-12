@@ -2,7 +2,8 @@
 
 
 
-<impresoras xmlns:xsi="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="InventarioImpresorasxsd">
+<impresoras xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNameSchemaLocation="InventarioImpresoras.xsd">
   <impresora numSerie="i245" tipo="láser" compra="2010">
     <marca>Epson</marca>
       <modelo>EPL300</modelo>

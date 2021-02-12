@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="impresoras">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:complexType name="impresora">
+					<xs:sequence>
+						<xs:element name="numSerie">
+						 	<xs:simpleType>
+						 		<xs:restriction base ="xs:string">
+						 			<xs:attribute use="required"/>
+						 		</xs:restriction>
+						 	</xs:simpleType>
+						</xs:element> 
+						<xs:element name="tipo">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:attribute use="required"/>
+									<xs:enumeration value="matricial"/>
+									<xs:enumeration value="laser"/>
+									<xs:enumeration value="tinta"/>
+								</xs:restriction>
+							</xs:simpleType>	
+						</xs:element>
+			
+						<xs:element name="compra" type="positiveInteger" minOccurs="0"			//Obligatorio
+						<xs:element name ="marca" type="string">
+							<xs:simpleType>
+								<xs:restriction base="string">
+									<xs:attribute use="required"				/*Obligatorio
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>		
+						<xs:element name="modelo">
+							<xs:simpleType>
+								<xs:restriction base="string">
+									<xs:attribute use="required"				/*Obligatorio
+								</xs:restriction>	
+							</xs:simpleType>	
+						</xs:element>
+						<xs:element name="peso">
+							<xs:simpleType>
+								<xs:restriction base="decimal">
+									<xs:attribute use="required"				/*Obligatorio
+									<xs:attribute fractionDigits="2"/>
+								</xs:restriction>	
+							</xs:simpleType>	
+						</xs:element>
+						<xs:element name ="tamaño" maxOccurs="unbounded">
+							<xs:simpleType>
+								<xs:restriction base="string">
+									<xs:attribute use="required"				/*Obligatorio
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name ="cartucho">
+							<xs:simpleType>
+								<xs:restriction base="string">
+									<xs:attribute use="required"					/*Obligatorio
+									<xs:pattern value="(C-)[1-9][1-9][1-9][A-Z]+"/>   /*Patron C-NNNLL
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="enred" fixed=""/>			
+					</xs:sequence>
+				</xs:complexType>
+			</xs:sequence>		
+		</xs:complexType>				
+	</xs:element>		
+</xs:schema>
