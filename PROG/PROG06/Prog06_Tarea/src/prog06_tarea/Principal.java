@@ -50,10 +50,10 @@ public class Principal {
                         System.out.println("Año: ");
                         anioMatr = teclado.nextInt();
                         
-                        if(fechaMatr(anioMatr, mesMatr, diaMatr)==false){            //Verificamos que la fecha sea correcta
+                        if(validaFechaMatr(anioMatr, mesMatr, diaMatr)==false){            //Verificamos que la fecha sea correcta
                             System.out.println("Error!. La fecha introducida es posterior a la fecha actual.\n");
                         }
-                    }while(fechaMatr(anioMatr, mesMatr, diaMatr) != true);       //No salimos del bucle hasta que la fecha no sea correcta 
+                    }while(validaFechaMatr(anioMatr, mesMatr, diaMatr) != true);       //No salimos del bucle hasta que la fecha no sea correcta 
                     
                     
                     teclado.nextLine();                     //consumimos el salto de linea
@@ -63,8 +63,14 @@ public class Principal {
                     System.out.println("Introduce el precio: ");
                     double precio = teclado.nextDouble();
                     teclado.nextLine();                     //consumimos el salto de linea
-                    System.out.println("Introduce el nombre del propietario: ");
-                    String propietario = teclado.nextLine();
+                    
+                    String propietario;
+                    do{
+                        System.out.println("Introduce el nombre del propietario: ");
+                        propietario = teclado.nextLine();
+                    }while(validaPropietario(propietario)!=true);
+                    
+                    
                     
                     System.out.println("Introduce el DNI del propietario: ");
                     String DNI = teclado.nextLine();
@@ -95,6 +101,17 @@ public class Principal {
                     
                 case 4:
                     //Modificar kms Vehiculo
+                    System.out.println("Introduce la matricula del vehiculo para actualizar los kms");
+                    String mat=teclado.nextLine();
+                    System.out.println("Introduce los kilometros");
+                    int km=teclado.nextInt();
+                    teclado.nextLine();             //consumimos el salto de linea
+                    if(tienda.actualizaKms(mat, km)){
+                        System.out.println("Dato actualizado correctamente");
+                        break;
+                    }else{
+                        System.out.println("La matricula introducida no coincide con ningun vehículo");
+                    }
                     break;
                     
                 case -1:
@@ -144,7 +161,7 @@ public class Principal {
      * @param dia Día de matriculacion
      * @return Devuelve si la fecha de matriculacion es anterior a la fecha actual. Boolean
      */
-    public static boolean fechaMatr(int anio, int mes, int dia){
+    public static boolean validaFechaMatr(int anio, int mes, int dia){
         
         boolean valida = LocalDate.of(anio, mes, dia).isBefore(LocalDate.now());
         return valida;
@@ -156,13 +173,47 @@ public class Principal {
      * @param kmNuevos dato actualizado de los nuevos kilometros del vehiculo
      * @return true si los km nuevos son mayores que los actuales
      */
-    public static boolean Km(int km, int kmNuevos){
+    public static boolean validaKm(int km, int kmNuevos){
         if(kmNuevos <= km){
             System.out.println("Error! El numero de km introducido es menor o igual que los actuales\n");
             return false;
         }else{
             return true;
         }
+    }
+    /**
+     * comprueba que la cadena pasada por parametro contienen tres palabras, es inferior a 40 caracteres y no contienen números
+     * @param cadena String a comprobar
+     * @return true si es correcto
+     */
+    public static boolean validaPropietario(String cadena){
+        int espacios=0;
+        if(cadena.length()>40){                                                                 //Comprobamos la longitud de la cadena
+            System.out.println("El nombre introducido tiene más de 40 carácteres");
+            return false;
+        }
+        for(int i=0;i<cadena.length();i++){
+            
+            if(cadena.charAt(i)==' '){                              //Comprobamos que existan dos espacios
+                espacios++;
+            }
+        }
+        if(espacios!=2){
+            System.out.println("No has introducido el nombre y los dos apellidos correctamente");
+            return false;
+        }
+        
+        //Verificamos que no hayan numeros en la cadena
+        if(cadena.contains("0")||cadena.contains("1")||cadena.contains("2")||cadena.contains("3")||cadena.contains("4")||cadena.contains("5")||cadena.contains("6")||cadena.contains("7")||cadena.contains("8")||cadena.contains("9")){
+            System.out.println("El nombre no puede contener numeros");
+            return false;
+        }
+        
+        return true;
+    }
+    
+    public static boolean validaMatricula(String matricula){
+        
     }
     
 }

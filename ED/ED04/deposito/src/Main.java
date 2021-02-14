@@ -1,29 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 /**
  * 
- * @author Sammy Guergachi <sguergachi at gmail.com>
+ * @author Francisco Alacreu
  */
 public class Main {
 
     public static void main(String[] args) {
-       
+        
+        
 
         operativa_cuenta();
     }
-
+    /**
+     * Controlamos las diferentes acciones a realizar con la cuenta
+     */
     public static void operativa_cuenta() {
         CCuenta cuenta1;
         double saldoActual;
+        
         cuenta1 = new CCuenta("Antonio López","1000-2365-85-1230456789",2500,0);
         saldoActual = cuenta1.estado();
         System.out.println("El saldo actual es"+ saldoActual );
         try {
-            cuenta1.retirar(2300);
+            cuenta1.retirar(960);
         } catch (Exception e) {
             System.out.print("Fallo al retirar");
         }

@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 /**
- * 
- * @author Sammy Guergachi <sguergachi at gmail.com>
+ * Clase para la gestion de cuentas
+ * @author Franscisco Alacreu
  */
 public class CCuenta {
 
@@ -71,30 +67,50 @@ public class CCuenta {
     private String cuenta;
     private double saldo;
     private double tipoInterés;
-
+    
+    /**
+     * Constructor de clase
+     */
     public CCuenta()
     {
     }
-
+    /**
+     * Constructor de clase
+     * @param nom nombre
+     * @param cue cuenta
+     * @param sal saldo
+     * @param tipo tipo
+     */
     public CCuenta(String nom, String cue, double sal, double tipo)
     {
         nombre =nom;
         cuenta=cue;
         saldo=sal;
     }
-
+    /**
+     * Devuelve el saldo de la cuenta
+     * @return saldo de la cuenta
+     */
     public double estado()
     {
         return getSaldo();
     }
-
+    /**
+     * Ingresa la cantidad pasada por parametro
+     * @param cantidad cantidad a ingresar
+     * @throws Exception En caso de que la cantidad sea negativa
+     */
     public void ingresar(double cantidad) throws Exception
     {
         if (cantidad<0)
             throw new Exception("No se puede ingresar una cantidad negativa");
         setSaldo(getSaldo() + cantidad);
     }
-
+    /**
+     * Retira la cantidad pasada por parametro de la cuenta
+     * @param cantidad cantidad a retirar
+     * @throws Exception Si la cantidad es negativa o no hay suficiente saldo
+     */
     public void retirar(double cantidad) throws Exception
     {
         if (cantidad <= 0)

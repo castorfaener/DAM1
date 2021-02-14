@@ -95,6 +95,12 @@ public class Concesionario {
      * @return Devuelve true si se hizo con éxito y false en caso contrario
      */
     public boolean actualizaKms(String matricula, int kms){
-        
+        for(int i=0; i<stockVehiculos; i++){
+            if(coche[i].getMatricula().equals(matricula)){
+                coche[i].setKm(kms);
+                return true;
+            }
+        }
+        return false;
     }
 }
