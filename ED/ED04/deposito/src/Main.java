@@ -10,12 +10,13 @@ public class Main {
         
         
 
-        operativa_cuenta();
+        operativa_cuenta(0);
     }
     /**
      * Controlamos las diferentes acciones a realizar con la cuenta
+     * @param cantidad cantidad a retirar
      */
-    public static void operativa_cuenta() {
+    public static void operativa_cuenta(float cantidad) {
         CCuenta cuenta1;
         double saldoActual;
         
@@ -23,7 +24,7 @@ public class Main {
         saldoActual = cuenta1.estado();
         System.out.println("El saldo actual es"+ saldoActual );
         try {
-            cuenta1.retirar(960);
+            cuenta1.retirar(cantidad);
         } catch (Exception e) {
             System.out.print("Fallo al retirar");
         }
