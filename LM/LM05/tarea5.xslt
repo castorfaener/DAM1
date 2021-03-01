@@ -24,7 +24,7 @@
         <td><xsl:value-of select="nombreCompleto"/></td>
         <td><xsl:value-of select="nacimiento"/></td>
         <xsl:choose>
-          <xsl:when test="fallecimiento!=null">
+          <xsl:when test="fallecimiento &gt;0">
             <td><xsl:value-of select="fallecimiento"/></td>
           </xsl:when>
           <xsl:otherwise>
