@@ -56,7 +56,7 @@ ALTER TABLE dpto add constraints fk_coddptodepende foreign key (coddptodepende) 
 ALTER TABLE dpto add constraints chk_tipo check(tipo in('P','F'));
 
 ALTER TABLE empleado add constraints pk_codemple primary key(codemple);
-ALTER TABLE empleado add constraints fk_codemplejefe foreign key (codemplejefe) references empleado(codemple);
+ALTER TABLE dpto add constraints fk_codemplejefe foreign key (codemplejefe) references empleado(codemple);
 ALTER TABLE empleado add constraints fk_coddpto foreign key (coddpto) references dpto(coddpto);
 
 CREATE TABLE CATEGORIA(
