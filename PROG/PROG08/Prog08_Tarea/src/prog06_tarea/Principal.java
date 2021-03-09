@@ -172,18 +172,17 @@ public class Principal {
                     matricula = teclado.nextLine();
                     boolean finded=false;
                     
-                    
-                    
-                    while(it.hasNext()){
-                        if(it.next().getMatricula().equals(matricula)){
+                    for(Vehiculo v: tienda){
+                        if(v.getMatricula().equals(matricula)){
                             System.out.println("Marca: " + it.next().getMarca() + "\nMatricula: "+ matricula + "\nPrecio: " + it.next().getPrecio());
                             finded=true;
                         }
-                        if(finded==false){
-                            System.out.println("No existe vehículo con la matrícula introducida");
-                        }
+                    }
+                    if(finded==false){
+                        System.out.println("No existe vehículo con la matrícula introducida");
                     }
                     
+    
                     break;
                     
                 case 4:
@@ -191,20 +190,21 @@ public class Principal {
                     
                     System.out.println("Introduce la matricula del vehiculo para actualizar los kms");
                     matricula=teclado.nextLine();
-                       
-                    while(it.hasNext()){
-                    if(it.next().getMatricula().equals(matricula)){
-                        System.out.println("Introduce los kilometros");
-                        kms=teclado.nextInt();
-                        teclado.nextLine();             //consumimos el salto de linea
-                        it.next().setKm(kms);
-                            
-                        System.out.println("Kilometraje actualizado correctamente");
-                    }else{
-                        System.out.println("La matricula introducida no pertenece a ningún vehiculo del concesionario");
+                    finded=false;
+                    for(Vehiculo v: tienda){
+                        if(v.getMatricula().equals(matricula)){
+                            System.out.println("Introduce los kilometros");
+                            kms=teclado.nextInt();
+                            teclado.nextLine();
+                            v.setKm(kms);
+                            System.out.println("Kilometraje actualizado correctamente");
+                            finded=true;
                         }
-                        
                     }
+                    if(finded==false){
+                        System.out.println("La matricula introducida no pertenece a ningún vehiculo del concesionario");
+                    }
+                    
                     break;    
           
                 case 5:
