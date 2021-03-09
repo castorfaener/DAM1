@@ -22,8 +22,8 @@ public class Principal {
         
         
         ArrayList<Vehiculo> tienda=new ArrayList<Vehiculo>();    //Instanciamos un arraylist para la gestion de objetos de tipo vehículo.
+                                                                 //Elegimos este tipo por ser el más versatil.
         
-        Iterator <Vehiculo> it = tienda.iterator();
         
         int diaMatr;
         int mesMatr;
@@ -36,6 +36,7 @@ public class Principal {
         String marca;
         String propietario;
         
+        boolean finded=false;                       //Variable para el control de busquedas en el ArrayList
         boolean matriculaDuplic=false;            //Variable para el control de duplicidades en las matriculas
         
         int select = 0;                     //Variable para el control de la seleccion del menu
@@ -170,11 +171,11 @@ public class Principal {
                     //Buscar Vehiculo
                     System.out.println("Introduce la matrícula del vehiculo a buscar");
                     matricula = teclado.nextLine();
-                    boolean finded=false;
+                    finded=false;
                     
                     for(Vehiculo v: tienda){
                         if(v.getMatricula().equals(matricula)){
-                            System.out.println("Marca: " + it.next().getMarca() + "\nMatricula: "+ matricula + "\nPrecio: " + it.next().getPrecio());
+                            System.out.println("Marca: " + v.getMarca() + "\nMatricula: "+ matricula + "\nPrecio: " + v.getPrecio());
                             finded=true;
                         }
                     }
@@ -212,6 +213,8 @@ public class Principal {
                     
                     System.out.println("Introduce la matricula del vehiculo a eliminar");
                     matricula=teclado.nextLine();
+                    
+                    Iterator <Vehiculo> it = tienda.iterator();
                     
                     while(it.hasNext()){
                         if(it.next().getMatricula().equals(matricula)){

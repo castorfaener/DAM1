@@ -26,6 +26,14 @@ public class Vehiculo implements Comparable<Vehiculo>{
     private String nombrePropietario;
     private String DNI;
     
+    
+    
+    /**
+     * Redefinicion del metodo compareTo
+     * @param v Objeto de tipo Vehiculo
+     * @return 0 si son iguales. 1 si son distintos
+     */
+    
     @Override
     public int compareTo(Vehiculo v){
         if(v.getMatricula().equals(matricula)){
