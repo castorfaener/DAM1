@@ -23,19 +23,20 @@ public class Principal {
     
     public static void main(String[] args) {
         
-        String rutaArchivosDatos = "/home/pakels/DAM/PROG/PROG09/Datos";
+        String rutaArchivosDatos = "/home/pakels/DAM/PROG/PROG09/Datos/";           //ruta en la que se guardan los ficheros de datos de los concesionarios
         
         ArrayList<Vehiculo> tienda=new ArrayList<Vehiculo>();    //Instanciamos un arraylist para la gestion de objetos de tipo vehículo.
                                                                    //Elegimos este tipo por ser el más versatil.
-        String ficheroDeDatos = menuFichero(rutaArchivosDatos);
+        
+        String ficheroDeDatos = menuFichero(rutaArchivosDatos);     //Elegimos el fichero de datos a traves de un menú
                                                                    
                                                                    
         try{
-            ObjectInputStream datos_fichero = new ObjectInputStream(new FileInputStream(ficheroDeDatos));
+            ObjectInputStream datos_fichero = new ObjectInputStream(new FileInputStream(ficheroDeDatos));       //Leemos los datos del fichero seleccionado
             tienda=(ArrayList)datos_fichero.readObject();
             datos_fichero.close();
         }catch(Exception e){
-            
+            System.out.println("No es posible acceder al archivo");
         }                                                           
         
         
@@ -57,7 +58,7 @@ public class Principal {
         
         
         
-        while(select!=-2){
+        while(select!=-2){                  //-2 es el valor de la variable al salir
             
             select = menu();
             
@@ -244,11 +245,11 @@ public class Principal {
                     try{
                         ObjectOutputStream guarda_fichero=new ObjectOutputStream(new FileOutputStream(ficheroDeDatos) );
                         
-                        guarda_fichero.writeObject(tienda);
+                        guarda_fichero.writeObject(tienda);                 //Guardamos los datos en el fichero
                         
                         guarda_fichero.close();
                     }catch(Exception e){
-                        
+                        System.out.println("No ha sido posible guardar los datos");
                     }
                     select=-2;                  //Salimos del bucle y finalizamos el programa
                     break;
@@ -290,6 +291,11 @@ public class Principal {
         }
         
     }
+    /**
+     * Menu para la seleccion del fichero de datos
+     * @param ruta Directorio donde se localizan los archivos de datos
+     * @return Directorio + fichero de datos
+     */
     
     public static String menuFichero(String ruta){
         
@@ -306,11 +312,13 @@ public class Principal {
         System.out.println("-------------------------------\n");
         System.out.println("Los datos de concesionarios disponibles son: \n");
         for(int i=0;i<archivosDatos.length; i++) {
-            System.out.println(archivosDatos[i]);
+            System.out.println("--" + archivosDatos[i]);
         }
-        System.out.println("Introduce el nombre de uno de ellos para continuar con su gestion \no un nombre para un nuevo concesionario:");
+        System.out.println("\n\nIntroduce el nombre de uno de ellos para continuar con su gestion \no un nombre para un nuevo concesionario:");
         
-        return(teclado.nextLine());
+        String archivoElegido = teclado.nextLine();
+        
+        return(ruta + archivoElegido);
         
     }
     
