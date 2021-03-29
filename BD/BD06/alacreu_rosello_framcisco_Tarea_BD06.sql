@@ -1,0 +1,2 @@
+DECLARE
+	no_id_FamiliaOrigen
