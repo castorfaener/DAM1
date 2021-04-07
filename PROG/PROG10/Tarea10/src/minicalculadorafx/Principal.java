@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ejemplofx;
+package minicalculadorafx;
 
 import java.io.IOException;
 import javafx.application.Application;
@@ -18,17 +18,18 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Sammy Guergachi <sguergachi at gmail.com>
+ * @author carlosgonzalez
  */
-public class NewFXMain extends Application {
+public class Principal extends Application {
     
     @Override
-    public void start(Stage primaryStage) throws IOException{
-        Parent root= FXMLLoader.load(getClass().getResource("MiniCalcVentana.fxml"));
+    public void start(Stage primaryStage) throws IOException {
+   
+        Parent root= FXMLLoader.load(getClass().getResource("MiniCalculadoraInterfaz.fxml"));
         Scene scene= new Scene(root);
         primaryStage.setTitle("Mini Calculadora JavaFX");
         primaryStage.setScene(scene);
-        primaryStage.show();    
+        primaryStage.show();         
     }
 
     /**
